@@ -1165,7 +1165,7 @@ class TasksManager:
         "vivit": supported_tasks_mapping(
             "image-classification",
             "video-classification",
-            onnx="ViViTOnnxConfig",
+            onnx="VivitOnnxConfig",
         )
     }
     _LIBRARY_TO_SUPPORTED_MODEL_TYPES = {
