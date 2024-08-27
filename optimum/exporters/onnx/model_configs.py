@@ -2319,7 +2319,8 @@ class VivitOnnxConfig(VisionOnnxConfig):
 
     @property
     def inputs(self) -> Dict[str, Dict[int, str]]:
-        return {"pixel_values": {0: "batch_size", 1: "num_frames", 2: "num_channels", 3: "height", 4: "width"}}
+        # return {"pixel_values": {0: "batch_size", 1: "num_frames", 2: "num_channels", 3: "height", 4: "width"}}
+        return {"pixel_values": {0: "batch_size", 1: "num_channels", 2: "height", 3: "width"}}
 
     @property
     def outputs(self) -> Dict[str, Dict[int, str]]:
