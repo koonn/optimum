@@ -2324,6 +2324,6 @@ class VivitOnnxConfig(VisionOnnxConfig):
     @property
     def outputs(self) -> Dict[str, Dict[int, str]]:
         common_outputs = super().outputs
-        if self.task == "feature-extraction":
-            common_outputs["last_hidden_state"] = {0: "batch_size"}
+        # if self.task == "feature-extraction":
+        #     common_outputs["last_hidden_state"] = {0: "batch_size"}
         return common_outputs
