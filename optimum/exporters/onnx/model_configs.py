@@ -53,6 +53,7 @@ from ...utils import (
     NormalizedTextConfig,
     NormalizedTextConfigWithGQA,
     NormalizedVisionConfig,
+    NormalizedVideoVisionConfig,
     check_if_transformers_greater,
     is_diffusers_available,
     logging,
@@ -2305,3 +2306,24 @@ class Pix2StructOnnxConfig(OnnxSeq2SeqConfigWithPast):
 
 class EncoderDecoderOnnxConfig(EncoderDecoderBaseOnnxConfig):
     NORMALIZED_CONFIG_CLASS = NormalizedEncoderDecoderConfig
+
+
+class VivitOnnxConfig(VisionOnnxConfig):
+    """
+    Configuration class to convert the ViViT model to ONNX.
+    """
+    NORMALIZED_CONFIG_CLASS = NormalizedVideoVisionConfig
+    MIN_TORCH_VERSION = version.parse("1.11")
+    DEFAULT_ONNX_OPSET = 14  # now uses F.scaled_dot_product_attention by default for torch>=2.1.1.
+    ATOL_FOR_VALIDATION = 1e-4
+
+    @property
+    def inputs(self) -> Dict[str, Dict[int, str]]:
+        return {"pixel_values": {0: "batch_size", 1: "num_frames", 2: "num_channels", 3: "height", 4: "width"}}
+
+    @property
+    def outputs(self) -> Dict[str, Dict[int, str]]:
+        common_outputs = super().outputs
+        if self.task == "feature-extraction":
+            common_outputs["last_hidden_state"] = {0: "batch_size"}
+        return common_outputs

@@ -1162,6 +1162,11 @@ class TasksManager:
             "object-detection",
             onnx="YolosOnnxConfig",
         ),
+        "vivit": supported_tasks_mapping(
+            "image-classification",
+            "video-classification",
+            onnx="ViViTOnnxConfig",
+        )
     }
     _LIBRARY_TO_SUPPORTED_MODEL_TYPES = {
         "diffusers": _DIFFUSERS_SUPPORTED_MODEL_TYPE,

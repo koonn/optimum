@@ -96,6 +96,16 @@ class NormalizedSeq2SeqConfig(NormalizedTextConfig):
     DECODER_NUM_ATTENTION_HEADS = NormalizedTextConfig.NUM_ATTENTION_HEADS
 
 
+class NormalizedVideoVisionConfig(NormalizedConfig):
+    """
+    Configuration class to normalize the video vision model configurations.
+    """
+    NUM_FRAMES = "num_frames"
+    IMAGE_SIZE = "image_size"
+    NUM_CHANNELS = "num_channels"
+    INPUT_SIZE = "input_size"
+
+
 class NormalizedVisionConfig(NormalizedConfig):
     IMAGE_SIZE = "image_size"
     NUM_CHANNELS = "num_channels"
@@ -281,6 +291,7 @@ class NormalizedConfigManager:
         "xlm-roberta": NormalizedTextConfig,
         "yolos": NormalizedVisionConfig,
         "qwen2": NormalizedTextConfig,
+        "vivit": NormalizedVisionConfig,
     }
 
     @classmethod
