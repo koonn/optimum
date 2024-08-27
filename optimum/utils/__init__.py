@@ -82,4 +82,5 @@ from .normalized_config import (
     NormalizedTextConfig,
     NormalizedTextConfigWithGQA,
     NormalizedVisionConfig,
+    NormalizedVideoVisionConfig
 )
