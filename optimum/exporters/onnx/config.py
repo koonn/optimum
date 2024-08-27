@@ -30,6 +30,7 @@ from ...utils import (
     DummySeq2SeqPastKeyValuesGenerator,
     DummyTextInputGenerator,
     DummyVisionInputGenerator,
+    DummyVideoVisionInputGenerator,
     is_diffusers_available,
     logging,
 )
@@ -250,6 +251,13 @@ class VisionOnnxConfig(OnnxConfig):
     """
 
     DUMMY_INPUT_GENERATOR_CLASSES = (DummyVisionInputGenerator,)
+
+class VideoVisionOnnxConfig(OnnxConfig):
+    """
+    Handles video vision architectures.
+    """
+
+    DUMMY_INPUT_GENERATOR_CLASSES = (DummyVideoVisionInputGenerator,)
 
 
 class TextAndVisionOnnxConfig(OnnxConfig):

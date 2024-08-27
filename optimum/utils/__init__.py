@@ -65,6 +65,7 @@ from .input_generators import (
     DummyVisionEmbeddingsGenerator,
     DummyVisionEncoderDecoderPastKeyValuesGenerator,
     DummyVisionInputGenerator,
+    DummyVideoVisionInputGenerator,
     DummyXPathSeqInputGenerator,
     FalconDummyPastKeyValuesGenerator,
     GemmaDummyPastKeyValuesGenerator,

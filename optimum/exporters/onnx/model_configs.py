@@ -70,6 +70,7 @@ from .config import (
     TextEncoderOnnxConfig,
     TextSeq2SeqOnnxConfig,
     VisionOnnxConfig,
+    VideoVisionOnnxConfig,
 )
 from .constants import ONNX_DECODER_MERGED_NAME, ONNX_DECODER_NAME, ONNX_DECODER_WITH_PAST_NAME
 from .model_patcher import (
@@ -2308,7 +2309,7 @@ class EncoderDecoderOnnxConfig(EncoderDecoderBaseOnnxConfig):
     NORMALIZED_CONFIG_CLASS = NormalizedEncoderDecoderConfig
 
 
-class VivitOnnxConfig(VisionOnnxConfig):
+class VivitOnnxConfig(VideoVisionOnnxConfig):
     """
     Configuration class to convert the ViViT model to ONNX.
     """
